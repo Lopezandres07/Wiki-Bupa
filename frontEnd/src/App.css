@@ -1,0 +1,103 @@
+.not-found {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 12.2rem 1fr 1fr;
+  align-items: center;
+}
+
+.navbar div > img {
+  width: 6rem;
+}
+
+.navbar input {
+  border-radius: 0.5rem;
+  border: transparent;
+  justify-self: start;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  width: 12rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-self: end;
+  gap: 0.5rem;
+}
+
+.navigation-buttons a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navigation-buttons a:hover {
+  color: #0021b6;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer article {
+  justify-self: center;
+  text-align: justify;
+}
+
+.footer article > p {
+  margin: 0.2rem 0;
+}
+
+.footer article > a {
+  display: flex;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  color: #fff;
+}
+
+.footer article > a:hover {
+  color: #0021b6;
+}
+
+.tags {
+  text-align: start;
+  list-style: none;
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.tags li {
+  margin-bottom: 0.3rem;
+  width: fit-content;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.tags li:hover {
+  color: #32a3ff;
+}
+
+.tagsToggled {
+  padding-left: 1rem;
+  list-style: none;
+  text-align: start;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
