@@ -12,7 +12,7 @@ main {
     'navigation navigation'
     'aside content'
     'footer footer';
-  min-height: 100vh;
+  height: 100vh;
 }
 
 header {
@@ -24,7 +24,8 @@ header {
 }
 
 section {
-  text-align: center;
+  background-color: #f1f1f1f1;
+  padding: 1rem 1rem;
   grid-area: content;
 }
 

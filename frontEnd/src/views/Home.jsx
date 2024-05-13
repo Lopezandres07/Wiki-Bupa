@@ -3,17 +3,13 @@ import React from 'react'
 export const Home = () => {
   return (
     <>
-      <div className='home-logo'>
+      <div className='home-title'>
         <h2>Bienvenidos a la Wiki Bupa</h2>
         <h3>
           ¡Tu fuente de conocimiento en las distintas áreas de la empresa!
         </h3>
-        <img
-          src='/img/home-bg.png'
-          alt='home-bg'
-        />
       </div>
-      <article className='home'>
+      <article className='home-content'>
         <div>
           <p>
             Desplázate por la barra lateral donde podrás visualizar en las
@@ -38,6 +34,10 @@ export const Home = () => {
             superior izquierda de la página, donde podrás buscar algún tema en
             específico.
           </p>
+          <img
+            src='/img/ti.png'
+            alt='home-bg'
+          />
         </div>
         <div>
           <p>
@@ -46,6 +46,10 @@ export const Home = () => {
             iniciar sesión con tu cuenta Bupa para que tengas habilitada la
             opción <b>"Crear Publicación"</b> en la barra de navegación.
           </p>
+          <img
+            src='/img/home-bg.png'
+            alt='home-bg'
+          />
         </div>
       </article>
     </>
