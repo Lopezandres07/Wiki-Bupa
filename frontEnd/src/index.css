@@ -30,7 +30,8 @@ section {
 
 aside {
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #001350;
+  color: #fff;
   grid-area: aside;
 }
 
