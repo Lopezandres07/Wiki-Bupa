@@ -110,7 +110,7 @@
 
 .home-content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .home-content div {
@@ -124,4 +124,26 @@
 .home-content img {
   align-self: center;
   width: 30rem;
+}
+
+.about-content {
+  display: flex;
+}
+
+.about-content div > h3 {
+  margin: 0;
+}
+
+.about-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  width: 100%;
+  padding: 0 1rem 0 1rem;
+}
+
+.about-content div > img {
+  width: 25rem;
 }

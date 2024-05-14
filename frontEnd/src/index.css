@@ -12,7 +12,7 @@ main {
     'navigation navigation'
     'aside content'
     'footer footer';
-  height: 100vh;
+  height: 100svh;
 }
 
 header {
