@@ -14,14 +14,14 @@ export const Footer = () => {
         <article>
           <strong>ACERCA DE</strong>
           <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
-          <NavLink to='/authors'>Desarrollador por</NavLink>
-          <NavLink to='/opinions'>Opiniones y mejoras</NavLink>
+          <NavLink to='/legal-advisor'>Aviso legal</NavLink>
+          <NavLink to='/user-terms'>Términos de uso</NavLink>
         </article>
         <article>
           <strong>INFORMACIÓN</strong>
-          <NavLink to='/legal-advisor'>Aviso legal</NavLink>
+          <NavLink to='/authors'>Desarrollador por</NavLink>
+          <NavLink to='/opinions'>Opiniones y mejoras</NavLink>
           <NavLink to='/privacy-politics'>Políticas de privacidad</NavLink>
-          <NavLink to='/user-terms'>Términos de uso</NavLink>
         </article>
       </div>
       <hr />
