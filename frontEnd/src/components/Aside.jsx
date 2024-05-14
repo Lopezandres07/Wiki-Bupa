@@ -66,7 +66,6 @@ export const Aside = () => {
         <ul className='tagsToggled'>
           <li>Office</li>
           <li>Utilitarias</li>
-          <li>Tips</li>
         </ul>
       )}
     </ul>
