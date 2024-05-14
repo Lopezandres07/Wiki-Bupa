@@ -29,12 +29,7 @@ function App() {
       location.pathname !== '/login' &&
       location.pathname !== '/about-us' &&
       location.pathname !== '/authors' &&
-      location.pathname !== '/initiative' &&
-      location.pathname !== '/initiative' &&
       location.pathname !== '/opinions' &&
-      location.pathname !== '/legal-advisor' &&
-      location.pathname !== '/user-terms' &&
-      location.pathname !== '/privacy-politics' &&
       !location.pathname.startsWith('/create-post') &&
       !location.pathname.startsWith('/my-posts') &&
       !location.pathname.startsWith('/all-post')
@@ -74,24 +69,8 @@ function App() {
                 element={<Authors />}
               />
               <Route
-                path='/initiative'
-                element={<Initiative />}
-              />
-              <Route
                 path='/opinions'
                 element={<Opinions />}
-              />
-              <Route
-                path='/legal-advisor'
-                element={<LegalAdvisor />}
-              />
-              <Route
-                path='/user-terms'
-                element={<UserTerms />}
-              />
-              <Route
-                path='/privacy-politics'
-                element={<PrivacyPolitics />}
               />
 
               {/* Rutas Protegidas */}
