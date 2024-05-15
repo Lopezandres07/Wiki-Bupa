@@ -10,11 +10,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { UserPosts } from './views/User/UserPosts'
 import { AllPosts } from './views/Admin/AllPosts'
 import { Authors } from './views/Authors'
-import { Initiative } from './views/Initiative'
 import { Opinions } from './views/Opinions'
-import { LegalAdvisor } from './views/LegalAdvisor'
-import { UserTerms } from './views/UserTerms'
-import { PrivacyPolitics } from './views/PrivacyPolitics'
 import { NotFound } from './views/NotFound'
 
 function App() {
