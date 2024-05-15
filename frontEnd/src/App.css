@@ -121,6 +121,10 @@
   text-align: justify;
 }
 
+.home-content div > p {
+  margin: 0;
+}
+
 .home-content img {
   align-self: center;
   width: 30rem;
