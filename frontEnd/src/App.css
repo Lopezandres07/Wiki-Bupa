@@ -162,6 +162,11 @@
   padding: 0;
 }
 
+.opinion-content form > p {
+  margin: 0;
+  text-align: justify;
+}
+
 .opinion-content form {
   display: flex;
   flex-direction: column;
@@ -174,7 +179,7 @@
 
 .opinion-content form > textarea {
   border-radius: 0.5rem;
-  width: 30rem;
+  width: 40rem;
   height: 8rem;
   padding: 0.2rem 0.4rem;
 }
