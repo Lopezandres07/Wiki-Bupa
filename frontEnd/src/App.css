@@ -68,6 +68,8 @@
 .footer article > a {
   display: flex;
   text-decoration: none;
+  text-align: justify;
+
   transition: color 0.3s ease;
   color: #fff;
   width: max-content;
@@ -135,8 +137,6 @@ h3 {
 
 .about-content {
   display: flex;
-  justify-content: space-around;
-  height: 100%;
 }
 
 .about-content div > h3 {
@@ -144,19 +144,23 @@ h3 {
   text-align: center;
 }
 
-.about-content div:first-child {
+.about-content div {
+  padding: 0 1rem;
   text-align: justify;
-  width: 50%;
 }
 
-.about-content div > img {
-  width: 25rem;
+.about-content div > p {
+  margin: 0;
+}
+
+.about-photo {
+  display: flex;
+  justify-content: center;
 }
 
 .opinion-content {
   display: flex;
   justify-content: space-around;
-  height: 100%;
 }
 
 .opinion-content form:first-child {
@@ -217,3 +221,24 @@ h3 {
 .opinion-content div > img {
   width: 25rem;
 }
+
+.authors-content {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.authors-content div > h3,
+p {
+}
+
+/* 
+.authors-content-img {
+  width: 50%;
+  justify-content: end;
+}
+
+.authors-content div > img {
+  width: 25rem;
+}
+ */
