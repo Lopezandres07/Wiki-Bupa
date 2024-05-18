@@ -102,37 +102,34 @@
   text-align: start;
 }
 
-.home-title {
-  text-align: center;
-}
-
-.home-title h2,
-h3 {
-  margin: 0;
-  padding: 0.2rem 0;
-}
-
 .home-content {
   display: flex;
-  justify-content: center;
-  padding: 0.4rem 0 0;
-}
-
-.home-content div {
-  display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 0 1rem 0 1rem;
+  align-items: center;
   text-align: justify;
 }
 
-.home-content div > p {
+.home-content h2 {
   margin: 0;
 }
 
-.home-content img {
-  align-self: center;
-  width: 30rem;
+.home-content p {
+  padding: 0 0 1rem 0;
+  margin: 0;
+}
+
+.home-content ul {
+  margin: 0;
+}
+
+.home-content div {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.home-content-center {
+  display: flex;
+  justify-content: center;
 }
 
 .about-content {
@@ -224,21 +221,31 @@ h3 {
 
 .authors-content {
   display: flex;
-  flex-direction: column;
   text-align: justify;
 }
 
-.authors-content div > h3,
-p {
+.authors-content h3 {
+  text-align: center;
 }
 
-/* 
-.authors-content-img {
+.authors-content div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 50%;
-  justify-content: end;
+  padding: 0 1rem;
+}
+
+.authors-content div > p {
+  margin: 0;
+  padding: 1rem 0;
 }
 
 .authors-content div > img {
-  width: 25rem;
+  width: 15rem;
+  padding: 1rem 0;
 }
- */
+
+.authors-content div:last-child > img:first-child {
+  width: 12rem;
+}
