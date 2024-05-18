@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 export const Navigation = () => {
-  const [token, setToken] = useState(true)
-  const [userData, setUserData] = useState(true)
+  const [token, setToken] = useState(false)
+  const [userData, setUserData] = useState(false)
 
   const logOut = () => {
     setToken(!token)
-    setUserData(!token)
+    setUserData(!userData)
   }
 
   const navigate = useNavigate()
