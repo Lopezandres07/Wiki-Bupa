@@ -5,7 +5,6 @@ import { Navigation } from './components/Navigation'
 import { AboutUs } from './views/AboutUs'
 import { CreatePost } from './views/CreatePost'
 import { Home } from './views/Home'
-import { Login } from './views/Login'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { UserPosts } from './views/User/UserPosts'
 import { AllPosts } from './views/Admin/AllPosts'
@@ -22,7 +21,6 @@ function App() {
   const showNotFound = () => {
     return (
       location.pathname !== '/' &&
-      location.pathname !== '/login' &&
       location.pathname !== '/about-us' &&
       location.pathname !== '/authors' &&
       location.pathname !== '/opinions' &&
@@ -51,10 +49,6 @@ function App() {
               <Route
                 path='/'
                 element={<Home />}
-              />
-              <Route
-                path='/login'
-                element={<Login />}
               />
               <Route
                 path='/about-us'

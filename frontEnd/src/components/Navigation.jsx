@@ -45,7 +45,7 @@ export const Navigation = () => {
         <div className='navigation-buttons'>
           <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
           <NavLink
-            to='/login'
+            to='/'
             onClick={logOut}
           >
             Iniciar Sesión
