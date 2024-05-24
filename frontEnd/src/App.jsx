@@ -11,10 +11,12 @@ import { AllPosts } from './views/Admin/AllPosts'
 import { Authors } from './views/Authors'
 import { Opinions } from './views/Opinions'
 import { NotFound } from './views/NotFound'
+import { UserContext } from './providers/UserProvider'
+import { useContext } from 'react'
 
 function App() {
-  let token
-  let userData
+  const { user } = useContext(UserContext)
+  const { userData, token } = user
 
   const location = useLocation()
 

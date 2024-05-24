@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { UserContext } from '../providers/UserProvider'
 
 export const Navigation = () => {
-  const [token, setToken] = useState(false)
-  const [userData, setUserData] = useState(false)
-
-  const logOut = () => {
-    setToken(!token)
-    setUserData(!userData)
-  }
+  const { user, logout } = useContext(UserContext)
+  const { userData, token } = user
 
   const navigate = useNavigate()
 
@@ -30,13 +26,13 @@ export const Navigation = () => {
         type='text'
         placeholder='Buscar'
       />
-      {token == true && userData == true ? (
+      {token && userData ? (
         <div className='navigation-buttons'>
           <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
           <NavLink to='/create-post'>Crear Publicación</NavLink>
           <NavLink
             to='/'
-            onClick={logOut}
+            onClick={logout}
           >
             Cerrar Sesión
           </NavLink>
@@ -44,12 +40,7 @@ export const Navigation = () => {
       ) : (
         <div className='navigation-buttons'>
           <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
-          <NavLink
-            to='/'
-            onClick={logOut}
-          >
-            Iniciar Sesión
-          </NavLink>
+          <NavLink to='/login'>Iniciar Sesión</NavLink>
         </div>
       )}
     </div>
