@@ -8,6 +8,7 @@ import { Home } from './views/Home'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { UserPosts } from './views/User/UserPosts'
 import { AllPosts } from './views/Admin/AllPosts'
+import { Login } from './views/Login'
 import { Authors } from './views/Authors'
 import { Opinions } from './views/Opinions'
 import { NotFound } from './views/NotFound'
@@ -23,6 +24,7 @@ function App() {
   const showNotFound = () => {
     return (
       location.pathname !== '/' &&
+      location.pathname !== '/login' &&
       location.pathname !== '/about-us' &&
       location.pathname !== '/authors' &&
       location.pathname !== '/opinions' &&
@@ -51,6 +53,10 @@ function App() {
               <Route
                 path='/'
                 element={<Home />}
+              />
+              <Route
+                path='/login'
+                element={<Login />}
               />
               <Route
                 path='/about-us'

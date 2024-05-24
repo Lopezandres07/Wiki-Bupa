@@ -15,7 +15,7 @@ export const createUser = async (data) => {
 export const loginWithEmailAndPassword = async (email, password) => {
   try {
     const response = await axios.post(`${API}login`, { email, password })
-    return response.data
+    return response.userData
   } catch (error) {
     console.error('Error al loguearse:', error)
     throw error

@@ -249,3 +249,14 @@
 .authors-content div:last-child > img:first-child {
   width: 12rem;
 }
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-content > * {
+  padding: 0.5rem;
+  margin: 0;
+}

@@ -1,11 +1,13 @@
-import React, { createContext } from 'react'
+import { createContext } from 'react'
 import { createUser, loginWithEmailAndPassword } from '../APIs/userAPIs'
 import { useUserState } from '../hooks/userState'
+import { useNavigate } from 'react-router-dom'
 
 export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
   const { user, setUser } = useUserState()
+  const navigate = useNavigate()
 
   const register = async (data) => {
     const newUser = await createUser(data)
@@ -14,6 +16,11 @@ export const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const userLogged = await loginWithEmailAndPassword(email, password)
+
+    if (userLogged.userData) {
+      navigate('/')
+    }
+
     setUser(userLogged)
   }
 
