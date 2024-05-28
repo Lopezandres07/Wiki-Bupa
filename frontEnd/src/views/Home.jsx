@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Home = () => {
   return (
-    <>
+    <section>
       <article className='home-content'>
         <h2>Bienvenidos a la Wiki Bupa</h2>
         <h3>
@@ -54,6 +54,6 @@ export const Home = () => {
           algún tema en específico.
         </p>
       </article>
-    </>
+    </section>
   )
 }

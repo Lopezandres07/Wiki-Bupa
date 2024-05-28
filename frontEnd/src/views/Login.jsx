@@ -24,11 +24,8 @@ export const Login = () => {
   })
 
   return (
-    <>
-      <form
-        onSubmit={onSubmit}
-        className='login-content'
-      >
+    <section className='login-content'>
+      <form onSubmit={onSubmit}>
         <h2>Iniciar Sesión</h2>
         <label htmlFor='email'>Correo</label>
         <input
@@ -57,6 +54,6 @@ export const Login = () => {
 
         <button>Enviar</button>
       </form>
-    </>
+    </section>
   )
 }

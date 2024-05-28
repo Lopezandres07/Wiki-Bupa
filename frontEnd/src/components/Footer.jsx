@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Footer = () => {
   return (
-    <>
+    <footer>
       <div className='footer'>
         <article>
           <strong>UBICACIÓN</strong>
@@ -29,6 +29,6 @@ export const Footer = () => {
           width={100}
         />
       </Link>
-    </>
+    </footer>
   )
 }

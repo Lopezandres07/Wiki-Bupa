@@ -2,7 +2,7 @@ import React from 'react'
 
 export const AboutUs = () => {
   return (
-    <>
+    <section>
       <div className='about-content'>
         <div>
           <h3>Acerca de nosotros</h3>
@@ -45,6 +45,6 @@ export const AboutUs = () => {
           alt='About Photo'
         />
       </div>
-    </>
+    </section>
   )
 }

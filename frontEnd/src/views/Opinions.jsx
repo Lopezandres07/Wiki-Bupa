@@ -5,7 +5,7 @@ export const Opinions = () => {
   const [email, setEmail] = useState('')
 
   return (
-    <>
+    <section>
       <div className='opinion-content'>
         <form>
           <h3>¡Envíanos tu opinión o ideas de mejora!</h3>
@@ -49,6 +49,6 @@ export const Opinions = () => {
           />
         </div>
       </div>
-    </>
+    </section>
   )
 }

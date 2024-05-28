@@ -9,40 +9,42 @@ export const Navigation = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='navbar'>
-      <div
-        className='brand'
-        onClick={() => navigate('/')}
-      >
-        <img
-          alt='Logo'
-          src='/img/logo2.png'
+    <header>
+      <div className='navbar'>
+        <div
+          className='brand'
+          onClick={() => navigate('/')}
+        >
+          <img
+            alt='Logo'
+            src='/img/logo2.png'
+          />
+          <h3>
+            <strong>Wiki Bupa</strong>
+          </h3>
+        </div>
+        <input
+          type='text'
+          placeholder='Buscar'
         />
-        <h3>
-          <strong>Wiki Bupa</strong>
-        </h3>
+        {token && userData ? (
+          <div className='navigation-buttons'>
+            <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
+            <NavLink to='/create-post'>Crear Publicación</NavLink>
+            <NavLink
+              to='/'
+              onClick={logout}
+            >
+              Cerrar Sesión
+            </NavLink>
+          </div>
+        ) : (
+          <div className='navigation-buttons'>
+            <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
+            <NavLink to='/login'>Iniciar Sesión</NavLink>
+          </div>
+        )}
       </div>
-      <input
-        type='text'
-        placeholder='Buscar'
-      />
-      {token && userData ? (
-        <div className='navigation-buttons'>
-          <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
-          <NavLink to='/create-post'>Crear Publicación</NavLink>
-          <NavLink
-            to='/'
-            onClick={logout}
-          >
-            Cerrar Sesión
-          </NavLink>
-        </div>
-      ) : (
-        <div className='navigation-buttons'>
-          <NavLink to='/about-us'>Acerca de la Wiki</NavLink>
-          <NavLink to='/login'>Iniciar Sesión</NavLink>
-        </div>
-      )}
-    </div>
+    </header>
   )
 }
