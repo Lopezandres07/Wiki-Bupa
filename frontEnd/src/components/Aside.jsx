@@ -21,7 +21,7 @@ export const Aside = () => {
     <aside>
       <ul className='tags'>
         <li onClick={() => toggleTagState('cruzblanca')}>
-          Cruzblanca {tagsState['cruzblanca'] ? '▼' : '▶'}
+          Cruzblanca {tagsState['cruzblanca']}
         </li>
         {tagsState['cruzblanca'] && (
           <ul className='tagsToggled'>
@@ -31,7 +31,7 @@ export const Aside = () => {
           </ul>
         )}
         <li onClick={() => toggleTagState('casamatriz')}>
-          Casa Matriz{tagsState['casamatriz'] ? '▼' : '▶'}
+          Casa Matriz{tagsState['casamatriz']}
         </li>
         {tagsState['casamatriz'] && (
           <ul className='tagsToggled'>
@@ -41,7 +41,7 @@ export const Aside = () => {
           </ul>
         )}
         <li onClick={() => toggleTagState('clinicas')}>
-          Clínicas {tagsState['clinicas'] ? '▼' : '▶'}
+          Clínicas {tagsState['clinicas']}
         </li>
         {tagsState['clinicas'] && (
           <ul className='tagsToggled'>
@@ -51,7 +51,7 @@ export const Aside = () => {
           </ul>
         )}
         <li onClick={() => toggleTagState('integramedica')}>
-          IntegraMédica {tagsState['integramedica'] ? '▼' : '▶'}
+          IntegraMédica {tagsState['integramedica']}
         </li>
         {tagsState['integramedica'] && (
           <ul className='tagsToggled'>
@@ -61,7 +61,7 @@ export const Aside = () => {
           </ul>
         )}
         <li onClick={() => toggleTagState('aplicaciones')}>
-          Aplicaciones {tagsState['aplicaciones'] ? '▼' : '▶'}
+          Aplicaciones {tagsState['aplicaciones']}
         </li>
         {tagsState['aplicaciones'] && (
           <ul className='tagsToggled'>
