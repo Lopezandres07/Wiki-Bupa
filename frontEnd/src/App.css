@@ -102,15 +102,15 @@
   padding: 0.5rem 0;
   border-radius: 0.5rem;
   list-style: none;
-  position: absolute; /* Add this */
-  visibility: hidden; /* Add this */
-  opacity: 0; /* Add this */
-  transition: visibility 0s, opacity 0.5s linear; /* Add this */
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .tags li:hover .tagsToggled {
-  visibility: visible; /* Add this */
-  opacity: 1; /* Add this */
+  visibility: visible;
+  opacity: 1;
   color: #fff;
   background-color: #001350;
 }
