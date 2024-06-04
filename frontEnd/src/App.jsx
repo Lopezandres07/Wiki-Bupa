@@ -1,8 +1,8 @@
 import './App.css'
 import { useContext } from 'react'
-import { Aside } from './components/Aside'
+import { Nav } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { Navigation } from './components/Navigation'
+import { Header } from './components/Header'
 import { AboutUs } from './views/AboutUs'
 import { CreatePost } from './views/CreatePost'
 import { Home } from './views/Home'
@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <main>
-        <Navigation />
-        <Aside />
+        <Header />
+        <Nav />
         <Routes>
           <Route
             path='/'

@@ -23,16 +23,16 @@ header {
   grid-area: navigation;
 }
 
+nav {
+  background-color: #001350;
+  color: #fff;
+  grid-area: aside;
+}
+
 section {
   background-color: #f1f1f1f1;
   padding: 1rem 1rem;
   grid-area: content;
-}
-
-aside {
-  background-color: #001350;
-  color: #fff;
-  grid-area: aside;
 }
 
 footer {

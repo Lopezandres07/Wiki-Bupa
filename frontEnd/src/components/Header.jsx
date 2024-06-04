@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { UserContext } from '../providers/UserProvider'
 
-export const Navigation = () => {
+export const Header = () => {
   const { user, logout } = useContext(UserContext)
   const { userData, token } = user
 

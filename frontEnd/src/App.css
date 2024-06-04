@@ -82,28 +82,41 @@
 
 .tags {
   display: flex;
-  justify-content: start;
-  gap: 3rem;
-  align-items: center;
+  justify-content: center;
   list-style: none;
-  padding-left: 1rem;
+  padding: 0.5rem 0;
+  margin: 0;
 }
 
 .tags li {
+  width: 10rem;
+  position: relative;
+  text-align: center;
   cursor: pointer;
-  transition: color 0.3s ease;
   user-select: none;
+  transition: color 0.3s ease;
+}
+
+.tagsToggled {
   width: max-content;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  list-style: none;
+  position: absolute; /* Add this */
+  visibility: hidden; /* Add this */
+  opacity: 0; /* Add this */
+  transition: visibility 0s, opacity 0.5s linear; /* Add this */
+}
+
+.tags li:hover .tagsToggled {
+  visibility: visible; /* Add this */
+  opacity: 1; /* Add this */
+  color: #fff;
+  background-color: #001350;
 }
 
 .tags li:hover {
   color: #32a3ff;
-}
-
-.tagsToggled {
-  padding-left: 1rem;
-  list-style: none;
-  text-align: start;
 }
 
 .home-content {
