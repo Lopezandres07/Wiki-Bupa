@@ -4,7 +4,7 @@ export const Nav = () => {
       <ul className='tags'>
         <li>
           Cruz Blanca
-          <ul className='tagsToggled'>
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -12,7 +12,7 @@ export const Nav = () => {
         </li>
         <li>
           Casa Matriz
-          <ul className='tagsToggled'>
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -20,7 +20,7 @@ export const Nav = () => {
         </li>
         <li>
           Clínicas
-          <ul className='tagsToggled'>
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -28,7 +28,7 @@ export const Nav = () => {
         </li>
         <li>
           IntegraMédica
-          <ul className='tagsToggled'>
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -36,7 +36,7 @@ export const Nav = () => {
         </li>
         <li>
           Aplicaciones
-          <ul className='tagsToggled'>
+          <ul className='tags-toggled'>
             <li>Office</li>
             <li>Utilitarias</li>
           </ul>
