@@ -121,13 +121,23 @@
 
 .home-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: justify;
 }
 
+.home-content div {
+  width: 40%;
+  text-align: center;
+}
+
+.home-content div > * {
+  width: fit-content;
+  margin: 0.5rem 0;
+}
+
 .home-content h2 {
-  margin: 0;
+  font-size: 3rem;
 }
 
 .home-content p {
@@ -137,11 +147,6 @@
 
 .home-content ul {
   margin: 0;
-}
-
-.home-content div {
-  width: 100%;
-  padding: 0 1rem;
 }
 
 .home-content-center {
