@@ -83,12 +83,18 @@
 .tags {
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0;
+  padding: 0;
   margin: 0;
 }
 
-.tags li {
+.tags-scrolled {
+  border-bottom: 1px solid #0000;
+  backdrop-filter: blur(4px);
+}
+
+.tags > li {
   width: 10rem;
+  padding: 0.5rem 0;
   position: relative;
   text-align: center;
   cursor: pointer;
@@ -102,21 +108,39 @@
 }
 
 .tags-toggled {
-  width: max-content;
-  padding: 0.5rem 0;
-  margin: 0;
-  background-color: #001350;
-  color: #fff;
-  border-radius: 0 0 0.5rem 0.5rem;
   position: absolute;
   visibility: hidden;
+  width: max-content;
+  padding: 0;
+  top: 2.47rem;
+  color: #fff;
+  background-color: #001350;
+  border-radius: 0 0 0.5rem 0.5rem;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
+}
+
+.tags-toggled > li {
+  width: 10rem;
+  padding: 0.2rem 0;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: color 0.3s ease;
+}
+
+.tags-toggled-scrolled {
+  background-color: rgba(0, 19, 80, 0.8);
+  backdrop-filter: blur(8px);
 }
 
 .tags li:hover .tags-toggled {
   visibility: visible;
   opacity: 1;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
 }
 
 .home-content {
@@ -124,35 +148,33 @@
   align-items: center;
   justify-content: center;
   text-align: justify;
+  padding: 2rem;
+}
+
+.center-home-content {
+  background-color: #001350;
+  color: #fff;
 }
 
 .home-content div {
   width: 40%;
-  text-align: center;
-}
-
-.home-content div > * {
-  width: fit-content;
-  margin: 0.5rem 0;
 }
 
 .home-content h2 {
   font-size: 3rem;
 }
 
-.home-content p {
-  padding: 0 0 1rem 0;
-  margin: 0;
+.home-content div:last-child {
+  text-align: center;
 }
 
-.home-content ul {
-  margin: 0;
+.home-content div > img {
+  width: 70%;
 }
 
-.home-content-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.home-content div > * {
+  width: fit-content;
+  margin: 0.5rem 0;
 }
 
 .about-content {

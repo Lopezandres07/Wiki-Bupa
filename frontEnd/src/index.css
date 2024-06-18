@@ -2,6 +2,7 @@ body {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f1f1f1;
 }
 
 main {
@@ -25,16 +26,24 @@ header {
 }
 
 nav {
-  background-color: #001350;
   color: #fff;
   grid-area: aside;
-  position: sticky;
   top: 0;
+  position: sticky;
+  background-color: #001350;
+}
+
+.nav-scrolled {
+  color: #fff;
+  grid-area: aside;
+  top: 0;
+  position: sticky;
+  border-bottom: 1px solid #000;
+  background-color: rgba(0, 19, 80, 0.8);
+  backdrop-filter: blur(4px);
 }
 
 section {
-  background-color: #f1f1f1f1;
-  padding: 1rem;
   grid-area: content;
 }
 
