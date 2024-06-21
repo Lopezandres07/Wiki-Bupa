@@ -21,30 +21,20 @@ header {
   text-align: center;
   background-color: #32a3ff;
   color: #fff;
-  padding: 0rem 1rem;
+  padding: 0rem 2rem;
   grid-area: navigation;
 }
 
 nav {
-  color: #fff;
+  color: #000;
   grid-area: aside;
   top: 0;
   position: sticky;
-  background-color: #001350;
-}
-
-.nav-scrolled {
-  color: #fff;
-  grid-area: aside;
-  top: 0;
-  position: sticky;
-  border-bottom: 1px solid #000;
-  background-color: rgba(0, 19, 80, 0.8);
-  backdrop-filter: blur(4px);
 }
 
 section {
   grid-area: content;
+  padding: 2rem 0;
 }
 
 footer {

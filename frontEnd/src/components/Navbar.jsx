@@ -19,15 +19,11 @@ export const Nav = () => {
   }, [])
 
   return (
-    <nav className={isScrolled ? 'nav-scrolled' : ''}>
-      <ul className='tags'>
+    <nav>
+      <ul className={`tags ${isScrolled ? 'tags-scrolled' : ''}`}>
         <li>
           Cruz Blanca
-          <ul
-            className={`tags-toggled ${
-              isScrolled ? 'tags-toggled-scrolled' : ''
-            }`}
-          >
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -35,11 +31,7 @@ export const Nav = () => {
         </li>
         <li>
           Casa Matriz
-          <ul
-            className={`tags-toggled ${
-              isScrolled ? 'tags-toggled-scrolled' : ''
-            }`}
-          >
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -47,11 +39,7 @@ export const Nav = () => {
         </li>
         <li>
           Clínicas
-          <ul
-            className={`tags-toggled ${
-              isScrolled ? 'tags-toggled-scrolled' : ''
-            }`}
-          >
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -59,11 +47,7 @@ export const Nav = () => {
         </li>
         <li>
           IntegraMédica
-          <ul
-            className={`tags-toggled ${
-              isScrolled ? 'tags-toggled-scrolled' : ''
-            }`}
-          >
+          <ul className='tags-toggled'>
             <li>Manuales</li>
             <li>Errores y soluciones</li>
             <li>Tips</li>
@@ -71,11 +55,7 @@ export const Nav = () => {
         </li>
         <li>
           Aplicaciones
-          <ul
-            className={`tags-toggled ${
-              isScrolled ? 'tags-toggled-scrolled' : ''
-            }`}
-          >
+          <ul className='tags-toggled'>
             <li>Office</li>
             <li>Utilitarias</li>
           </ul>
