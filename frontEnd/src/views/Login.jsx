@@ -25,8 +25,8 @@ export const Login = () => {
 
   return (
     <section className='login-content'>
+      <h2>Ingresa a la Wiki Bupa</h2>
       <form onSubmit={onSubmit}>
-        <h2>Iniciar Sesión</h2>
         <label htmlFor='email'>Correo</label>
         <input
           {...register('email', {
@@ -35,7 +35,6 @@ export const Login = () => {
               message: 'Correo es requerido',
             },
           })}
-          placeholder='Correo electrónico'
         />
         {errors.email && <span>Este campo es requerido</span>}
 
@@ -48,11 +47,10 @@ export const Login = () => {
               message: 'Contraseña es requerida',
             },
           })}
-          placeholder='Contraseña'
         />
         {errors.password && <span>Este campo es requerido</span>}
 
-        <button>Enviar</button>
+        <button>Iniciar Sesión</button>
       </form>
     </section>
   )

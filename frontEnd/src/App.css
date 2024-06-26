@@ -288,12 +288,51 @@
 
 .login-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-.login-content > * {
+.login-content h2 {
+  margin-top: 0;
+}
+
+.login-content form {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  background-color: #32a3ff;
+  box-shadow: 0.5px 0.5px 5px 1px #32a3ff;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  width: 13rem;
+}
+
+.login-content form > *:not(input, button, span) {
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: start;
+  color: white;
+}
+
+.login-content input {
+  border-radius: 0.5rem;
+  border: #bbbbbb solid 1px;
+  justify-self: start;
+  padding: 0.3rem;
+}
+
+.login-content button {
+  margin: 1rem 0;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  /*   background-color: #32a3ff; */
+  background-color: #001350;
+  color: white;
+  border: none;
+}
+
+.login-content span {
+  padding: 0;
+  color: red;
 }
