@@ -2,9 +2,11 @@ import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { UserContext } from '../providers/UserProvider'
 import { sweetAlerts } from '../utilities/sweetAlerts'
+import { NavLink } from 'react-router-dom'
 
 export const Login = () => {
   const { login } = useContext(UserContext)
+
   const {
     register,
     handleSubmit,
@@ -12,6 +14,8 @@ export const Login = () => {
   } = useForm()
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data)
+
     try {
       const response = await login(data.email, data.password)
       sweetAlerts(
@@ -36,7 +40,7 @@ export const Login = () => {
             },
           })}
         />
-        {errors.email && <span>Este campo es requerido</span>}
+        {errors.email && <span>{errors.email.message}</span>}
 
         <label htmlFor='password'>Contraseña</label>
         <input
@@ -48,9 +52,9 @@ export const Login = () => {
             },
           })}
         />
-        {errors.password && <span>Este campo es requerido</span>}
-
+        {errors.password && <span>{errors.password.message}</span>}
         <button>Iniciar Sesión</button>
+        <NavLink to='/password-reset'>¿Olvidó su contraseña?</NavLink>
       </form>
     </section>
   )

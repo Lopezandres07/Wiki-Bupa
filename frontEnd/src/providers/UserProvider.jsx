@@ -15,6 +15,8 @@ export const UserProvider = ({ children }) => {
   }
 
   const login = async (email, password) => {
+    console.log(email, password)
+
     const userLogged = await loginWithEmailAndPassword(email, password)
 
     if (userLogged.userData) {
