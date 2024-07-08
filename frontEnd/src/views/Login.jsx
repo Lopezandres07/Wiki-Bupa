@@ -17,11 +17,15 @@ export const Login = () => {
     console.log(data)
 
     try {
-      const response = await login(data.email, data.password)
-      sweetAlerts(
-        'success',
-        `¡Saludos ${response.userData.firstname} ${response.userData.lastname}!`
-      )
+      const response = await login(data)
+      console.log('User data: ', response)
+
+      if (response.success) {
+        sweetAlerts(
+          'success',
+          `¡Saludos ${response.userData.firstname} ${response.userData.lastname}!`
+        )
+      }
     } catch (error) {
       sweetAlerts('error', 'Usuario o contraseña incorrectos.')
     }

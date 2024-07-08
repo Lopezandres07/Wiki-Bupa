@@ -1,17 +1,13 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { createUser } from '../models/userModel.js'
+import { createUser, findUserByEmail } from '../models/userModels.js'
 
 export const newUser = async (req, res) => {
-  const { firstname, lastname, email, password } = req.body
+  const { data } = req.body
+  console.log('New User Controller: ', data)
 
   try {
-    const user = await createUser({
-      firstname,
-      lastname,
-      email,
-      password: bcrypt.hashSync(password, 10),
-    })
+    const user = await createUser(data)
 
     res.status(201).json({ success: true, user })
   } catch (error) {
@@ -20,24 +16,28 @@ export const newUser = async (req, res) => {
 }
 
 export const loginUser = async (req, res) => {
-  const { email, password } = req.body
+  const { data } = req.body
 
   try {
-    const user = await findUserByEmail(email)
+    const findUser = await findUserByEmail(data)
 
-    if (user && bcrypt.compareSync(password, user.password)) {
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-        expiresIn: 86400,
-      })
+    if (findUser && bcrypt.compareSync(data.password, findUser.password)) {
+      const token = jwt.sign(
+        { email: findUser.email },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: 86400,
+        }
+      )
 
       res.status(200).json({
         success: true,
         token,
         userData: {
-          id: user._id,
-          firstname: user.firstname,
-          lastname: user.lastname,
-          email: user.email,
+          id: findUser.id,
+          firstname: findUser.firstname,
+          lastname: findUser.lastname,
+          email: findUser.email,
         },
       })
     } else {

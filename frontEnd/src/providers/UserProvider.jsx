@@ -7,6 +7,8 @@ export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
   const { user, setUser } = useUserState()
+  console.log('User Provider: ', user)
+
   const navigate = useNavigate()
 
   const register = async (data) => {
@@ -14,16 +16,15 @@ export const UserProvider = ({ children }) => {
     return newUser
   }
 
-  const login = async (email, password) => {
-    console.log(email, password)
+  const login = async (data) => {
+    const userLogged = await loginWithEmailAndPassword(data)
 
-    const userLogged = await loginWithEmailAndPassword(email, password)
-
-    if (userLogged.userData) {
+    if (userLogged) {
       navigate('/')
     }
 
     setUser(userLogged)
+    return userLogged
   }
 
   const logout = () => {
