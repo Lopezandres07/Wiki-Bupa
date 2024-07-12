@@ -9,7 +9,7 @@
 
 .navbar {
   display: grid;
-  grid-template-columns: 14rem 1fr 1fr;
+  grid-template-columns: 14rem auto auto;
   align-items: center;
 }
 

@@ -35,6 +35,7 @@ export const loginUser = async (req, res) => {
         token,
         userData: {
           id: findUser.id,
+          role_id: findUser.role_id,
           firstname: findUser.firstname,
           lastname: findUser.lastname,
           email: findUser.email,

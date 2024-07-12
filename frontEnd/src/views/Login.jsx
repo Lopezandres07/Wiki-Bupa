@@ -23,7 +23,7 @@ export const Login = () => {
       if (response.success) {
         sweetAlerts(
           'success',
-          `¡Saludos ${response.userData.firstname} ${response.userData.lastname}!`
+          `¡Bienvenida/o ${response.userData.firstname} ${response.userData.lastname}!`
         )
       }
     } catch (error) {

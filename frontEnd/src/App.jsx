@@ -8,12 +8,14 @@ import { CreatePost } from './views/CreatePost'
 import { Home } from './views/Home'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { UserPosts } from './views/User/UserPosts'
-import { AllPosts } from './views/Admin/AllPosts'
+import { PostsManagement } from './views/Admin/PostManagement'
 import { Login } from './views/Login'
 import { Authors } from './views/Authors'
 import { Opinions } from './views/Opinions'
 import { NotFound } from './views/NotFound'
 import { UserContext } from './providers/UserProvider'
+import UsersManagment from './views/Admin/UsersManagment'
+import { CreateUser } from './views/Admin/CreateUser'
 
 function App() {
   const { user } = useContext(UserContext)
@@ -53,7 +55,7 @@ function App() {
           {/* Rutas Protegidas ⬇ */}
 
           <Route
-            path='/create-post'
+            path='/create-post/:id'
             element={
               token && userData ? (
                 <CreatePost />
@@ -66,7 +68,20 @@ function App() {
           />
 
           <Route
-            path='/my-posts'
+            path='/create-user'
+            element={
+              token && userData.role_id === 1 ? (
+                <CreateUser />
+              ) : (
+                <>
+                  <Navigate to={'/login'} />
+                </>
+              )
+            }
+          />
+
+          <Route
+            path='/my-posts/:id'
             element={
               token && userData ? (
                 <UserPosts />
@@ -79,10 +94,23 @@ function App() {
           />
 
           <Route
-            path='/all-post'
+            path='/posts-management'
             element={
-              token && userData ? (
-                <AllPosts />
+              token && userData.role_id === 1 ? (
+                <PostsManagement />
+              ) : (
+                <>
+                  <Navigate to={'/login'} />
+                </>
+              )
+            }
+          />
+
+          <Route
+            path='/users-management'
+            element={
+              token && userData.role_id === 1 ? (
+                <UsersManagment />
               ) : (
                 <>
                   <Navigate to={'/login'} />
