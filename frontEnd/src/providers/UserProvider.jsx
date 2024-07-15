@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, useEffect } from 'react'
 import { createUser, loginWithEmailAndPassword } from '../APIs/userAPIs'
 import { useUserState } from '../hooks/userState'
 import { useNavigate } from 'react-router-dom'
@@ -7,9 +7,18 @@ export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
   const { user, setUser } = useUserState()
+  const navigate = useNavigate()
+
   console.log('User Provider: ', user)
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const userData = JSON.parse(localStorage.getItem('userData'))
+
+    if (token && userData) {
+      setUser({ token, userData })
+    }
+  }, [])
 
   const register = async (data) => {
     const newUser = await createUser(data)
@@ -20,6 +29,9 @@ export const UserProvider = ({ children }) => {
     const userLogged = await loginWithEmailAndPassword(data)
 
     if (userLogged) {
+      localStorage.setItem('token', userLogged.token)
+      localStorage.setItem('userData', JSON.stringify(userLogged.userData))
+      setUser(userLogged)
       navigate('/')
     }
 
