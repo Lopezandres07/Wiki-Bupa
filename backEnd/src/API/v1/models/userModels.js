@@ -1,6 +1,15 @@
 import { pool } from '../../../../config/db/conectionDB.js'
 import bcrypt from 'bcryptjs'
 
+export const getAllUsersModel = async () => {
+  const SQLquery = {
+    text: 'SELECT * FROM users',
+  }
+
+  const response = await pool.query(SQLquery)
+  return response.rows
+}
+
 export const createUser = async (data) => {
   const { firstname, lastname, email, password, role_id } = data
   console.log('DB user: ', firstname, lastname, email, password, role_id)

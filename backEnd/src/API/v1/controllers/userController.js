@@ -1,6 +1,19 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { createUser, findUserByEmail } from '../models/userModels.js'
+import {
+  createUser,
+  findUserByEmail,
+  getAllUsersModel,
+} from '../models/userModels.js'
+
+export const getUsersController = async (req, res) => {
+  try {
+    const users = await getAllUsersModel()
+    res.status(200).json(users)
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener los usuarios', error })
+  }
+}
 
 export const newUser = async (req, res) => {
   const { data } = req.body

@@ -1,15 +1,17 @@
 import { createContext, useEffect } from 'react'
-import { createUser, loginWithEmailAndPassword } from '../APIs/userAPIs'
 import { useUserState } from '../hooks/userState'
 import { useNavigate } from 'react-router-dom'
+import {
+  createUser,
+  getUsers,
+  loginWithEmailAndPassword,
+} from '../APIs/userAPIs'
 
 export const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
   const { user, setUser } = useUserState()
   const navigate = useNavigate()
-
-  console.log('User Provider: ', user)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -19,6 +21,11 @@ export const UserProvider = ({ children }) => {
       setUser({ token, userData })
     }
   }, [])
+
+  const getAllUsers = async () => {
+    const users = await getUsers()
+    return users
+  }
 
   const register = async (data) => {
     const newUser = await createUser(data)
@@ -40,11 +47,15 @@ export const UserProvider = ({ children }) => {
   }
 
   const logout = () => {
+    localStorage.removeItem('userData')
+    localStorage.removeItem('token')
     setUser({ userData: null, token: null })
   }
 
   return (
-    <UserContext.Provider value={{ register, login, logout, user }}>
+    <UserContext.Provider
+      value={{ getAllUsers, register, login, logout, user }}
+    >
       {children}
     </UserContext.Provider>
   )

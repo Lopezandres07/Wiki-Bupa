@@ -7,15 +7,15 @@ import { AboutUs } from './views/AboutUs'
 import { CreatePost } from './views/CreatePost'
 import { Home } from './views/Home'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { UserPosts } from './views/User/UserPosts'
 import { PostsManagement } from './views/Admin/PostManagement'
 import { Login } from './views/Login'
 import { Authors } from './views/Authors'
 import { Opinions } from './views/Opinions'
 import { NotFound } from './views/NotFound'
 import { UserContext } from './providers/UserProvider'
-import UsersManagment from './views/Admin/UsersManagment'
+import { UsersManagment } from './views/Admin/UsersManagment'
 import { CreateUser } from './views/Admin/CreateUser'
+import { UserPosts } from './views/UserPosts'
 
 function App() {
   const { user } = useContext(UserContext)

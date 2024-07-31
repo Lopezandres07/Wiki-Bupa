@@ -2,6 +2,16 @@ import axios from 'axios'
 
 const API = 'http://localhost:3000/api/v1/'
 
+export const getUsers = async () => {
+  try {
+    const response = await axios.get(`${API}users`)
+    return response.data
+  } catch (error) {
+    console.log('Error al obtener los usuarios:', error)
+    throw error
+  }
+}
+
 export const createUser = async (data) => {
   try {
     const response = await axios.post(`${API}register`, data)
