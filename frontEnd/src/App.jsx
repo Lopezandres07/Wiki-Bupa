@@ -1,21 +1,20 @@
 import './App.css'
 import { useContext } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { UserContext } from './providers/UserProvider'
 import { Nav } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
-import { AboutUs } from './views/AboutUs'
-import { CreatePost } from './views/CreatePost'
-import { Home } from './views/Home'
-import { Routes, Route, Navigate } from 'react-router-dom'
 import { PostsManagement } from './views/Admin/PostManagement'
+import { UsersManagment } from './views/Admin/UsersManagment'
+import { Home } from './views/Home'
+import { AboutUs } from './views/AboutUs'
 import { Login } from './views/Login'
 import { Authors } from './views/Authors'
 import { Opinions } from './views/Opinions'
 import { NotFound } from './views/NotFound'
-import { UserContext } from './providers/UserProvider'
-import { UsersManagment } from './views/Admin/UsersManagment'
-import { CreateUser } from './views/Admin/CreateUser'
 import { UserPosts } from './views/UserPosts'
+import { CreatePost } from './views/CreatePost'
 
 function App() {
   const { user } = useContext(UserContext)
@@ -59,19 +58,6 @@ function App() {
             element={
               token && userData ? (
                 <CreatePost />
-              ) : (
-                <>
-                  <Navigate to={'/login'} />
-                </>
-              )
-            }
-          />
-
-          <Route
-            path='/create-user'
-            element={
-              token && userData.role_id === 1 ? (
-                <CreateUser />
               ) : (
                 <>
                   <Navigate to={'/login'} />
