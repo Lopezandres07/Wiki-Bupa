@@ -11,6 +11,7 @@ export const UsersManagment = () => {
   const [allUsers, setAllUsers] = useState([])
   const [selectedUser, setSelectedUser] = useState(null)
   const [openModal, setOpenModal] = useState(null)
+  console.log('openModal:', openModal)
 
   useEffect(() => {
     const fetchUsers = async () => {
