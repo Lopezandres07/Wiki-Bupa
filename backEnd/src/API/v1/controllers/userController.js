@@ -4,6 +4,7 @@ import {
   createUser,
   findUserByEmail,
   getAllUsersModel,
+  removeUser,
 } from '../models/userModels.js'
 
 export const getUsersController = async (req, res) => {

@@ -36,3 +36,13 @@ export const findUserByEmail = async (data) => {
   const response = await pool.query(SQLquery)
   return response.rows[0]
 }
+
+export const removeUser = async (id) => {
+  const SQLquery = {
+    text: 'DELETE FROM users WHERE id = $1',
+    values: [id],
+  }
+
+  const response = await pool.query(SQLquery)
+  return response.rows[0]
+}

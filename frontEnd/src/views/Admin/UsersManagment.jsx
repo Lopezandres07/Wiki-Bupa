@@ -1,17 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../providers/UserProvider'
 import { getRoleName } from '../../utilities/roleUtils'
-import { CreateUserModal } from '../../components/CreateUserModal'
-import { ResetPasswordModal } from '../../components/ResetPasswordModal'
-import { UpdateUserModal } from '../../components/UpdateUserModal'
 import { DeleteUserModal } from '../../components/DeleteUserModal'
 
 export const UsersManagment = () => {
   const { getAllUsers } = useContext(UserContext)
   const [allUsers, setAllUsers] = useState([])
   const [selectedUser, setSelectedUser] = useState(null)
-  const [openModal, setOpenModal] = useState(null)
-  console.log('openModal:', openModal)
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -29,27 +25,22 @@ export const UsersManagment = () => {
   const handleCheckboxChange = (user) => {
     setSelectedUser((prevSelectedUser) => {
       const newSelectedUser = prevSelectedUser === user ? null : user
-      if (newSelectedUser === null) {
-        setOpenModal(null)
-      }
       return newSelectedUser
     })
+  }
+
+  const closeModal = () => {
+    setOpenModal(false)
   }
 
   return (
     <section className='user-managment-contet'>
       <div>
-        <button onClick={() => setOpenModal('createUser')}>
-          Nuevo Usuario
-        </button>
+        <button>Nuevo Usuario</button>
         {selectedUser !== null ? (
           <>
-            <button onClick={() => setOpenModal('resetPassword')}>
-              Restablecer Contraseña
-            </button>
-            <button onClick={() => setOpenModal('updateUser')}>
-              Actualizar Usuario
-            </button>
+            <button>Restablecer Contraseña</button>
+            <button>Actualizar Usuario</button>
             <button onClick={() => setOpenModal('deleteUser')}>
               Eliminar Usuario
             </button>
@@ -100,25 +91,10 @@ export const UsersManagment = () => {
           </tbody>
         </table>
       </div>
-      {openModal === 'createUser' && (
-        <CreateUserModal onClose={() => setOpenModal(null)} />
-      )}
-      {openModal === 'resetPassword' && (
-        <ResetPasswordModal
-          user={selectedUser}
-          onClose={() => setOpenModal(null)}
-        />
-      )}
-      {openModal === 'updateUser' && (
-        <UpdateUserModal
-          user={selectedUser}
-          onClose={() => setOpenModal(null)}
-        />
-      )}
       {openModal === 'deleteUser' && (
         <DeleteUserModal
           user={selectedUser}
-          onClose={() => setOpenModal(null)}
+          onClose={closeModal}
         />
       )}
     </section>

@@ -3,6 +3,7 @@ import { useUserState } from '../hooks/userState'
 import { useNavigate } from 'react-router-dom'
 import {
   createUser,
+  deletedUserById,
   getUsers,
   loginWithEmailAndPassword,
 } from '../APIs/userAPIs'
@@ -46,6 +47,13 @@ export const UserProvider = ({ children }) => {
     return userLogged
   }
 
+  const deleteUser = async (id) => {
+    console.log('UserProvider: ', id)
+
+    const userDeleted = deletedUserById(id)
+    return userDeleted
+  }
+
   const logout = () => {
     localStorage.removeItem('userData')
     localStorage.removeItem('token')
@@ -54,7 +62,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ getAllUsers, register, login, logout, user }}
+      value={{ getAllUsers, register, login, logout, user, deleteUser }}
     >
       {children}
     </UserContext.Provider>

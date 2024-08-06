@@ -1,40 +1,44 @@
-import React from 'react'
-import { Modal, Button } from 'flowbite-react'
-import { HiOutlineExclamationCircle } from 'react-icons/hi'
+import { useContext, useEffect } from 'react'
+import { UserContext } from '../providers/UserProvider'
+import Swal from 'sweetalert2'
+import PropTypes from 'prop-types'
 
 export const DeleteUserModal = ({ user, onClose }) => {
-  return (
-    <>
-      <Modal
-        show={true}
-        size='md'
-        popup
-        onClose={onClose}
-      >
-        <Modal.Header />
-        <Modal.Body>
-          <div className='text-center'>
-            <HiOutlineExclamationCircle className='mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200' />
-            <h3 className='mb-5 text-lg font-normal text-gray-500 dark:text-gray-400'>
-              {`¿Estás seguro que deseas eliminar a ${user.firstname} ${user.lastname}?`}
-            </h3>
-            <div className='flex justify-center gap-4'>
-              <Button
-                color='failure'
-                onClose={onClose}
-              >
-                Eliminar
-              </Button>
-              <Button
-                color='gray'
-                onClose={onClose}
-              >
-                Cancelar
-              </Button>
-            </div>
-          </div>
-        </Modal.Body>
-      </Modal>
-    </>
-  )
+  const { deleteUser } = useContext(UserContext)
+
+  const handleDelete = async (user) => {
+    try {
+      await deleteUser(user.id)
+      Swal.fire('Eliminado!', 'El usuario ha sido eliminado.', 'success')
+      onClose()
+    } catch (error) {
+      Swal.fire('Error!', 'Hubo un problema al eliminar el usuario.', 'error')
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      Swal.fire({
+        text: `¿Estás seguro que deseas eliminar a ${user.firstname} ${user.lastname}?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        confirmButtonColor: '#dc3545',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          handleDelete(user)
+        } else {
+          onClose()
+        }
+      })
+    }
+  }, [user, onClose])
+
+  return null
+}
+
+DeleteUserModal.propTypes = {
+  user: PropTypes.object,
+  onClose: PropTypes.func.isRequired,
 }

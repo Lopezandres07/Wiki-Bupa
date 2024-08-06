@@ -31,3 +31,13 @@ export const loginWithEmailAndPassword = async (data) => {
     throw error
   }
 }
+
+export const deletedUserById = async (id) => {
+  try {
+    const response = await axios.delete(`${API}user/${id}`)
+    return response.data
+  } catch (error) {
+    console.error('Error al eliminar el usuario:', error)
+    throw error
+  }
+}
