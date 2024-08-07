@@ -369,7 +369,7 @@
   padding: 2rem;
 }
 
-.user-managment-contet div {
+.user-managment-contet > div {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -422,4 +422,89 @@
 
 .users-table tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+/* User Modal Styles ⬇ */
+
+.modal-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay > div {
+  text-align: center;
+  background-color: #ffffffe3;
+  border-radius: 0.5rem;
+  padding: 1rem 3rem;
+  width: 20rem;
+  animation: modalFadeIn 0.5s ease;
+}
+
+.modal-overlay > div h2 {
+  margin: 0;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User Modal Styles ⬆ */
+
+.create-user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.create-user-form > p {
+  margin: 0;
+}
+
+.create-user-form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0 0;
+  gap: 1rem;
+}
+
+.create-user-form > span {
+  color: #f44336;
+}
+
+.create-user-form > input,
+.create-user-form > select {
+  border-radius: 0.5rem;
+  border: #bbbbbb solid 1px;
+  padding: 0.3rem;
+  width: 15rem;
+}
+
+.create-user-form div > button {
+  background: #32a3ff;
+  color: white;
+  width: 7rem;
+}
+
+.create-user-form div > button:last-child {
+  background: #a1a1a1;
+  color: white;
 }

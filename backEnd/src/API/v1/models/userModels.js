@@ -11,14 +11,29 @@ export const getAllUsersModel = async () => {
 }
 
 export const createUser = async (data) => {
-  const { firstname, lastname, email, password, role_id } = data
-  console.log('DB user: ', firstname, lastname, email, password, role_id)
+  const {
+    firstname,
+    lastname,
+    email,
+    password,
+    occupation,
+    workplace,
+    role_id,
+  } = data
 
   const hashedPasword = bcrypt.hashSync(password)
 
   const SQLquery = {
-    text: 'INSERT INTO users (role_id, firstname, lastname, email, password) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-    values: [role_id, firstname, lastname, email, hashedPasword],
+    text: 'INSERT INTO users (role_id, firstname, lastname, email, password, occupation, workplace) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+    values: [
+      role_id,
+      firstname,
+      lastname,
+      email,
+      hashedPasword,
+      occupation,
+      workplace,
+    ],
   }
 
   const response = await pool.query(SQLquery)

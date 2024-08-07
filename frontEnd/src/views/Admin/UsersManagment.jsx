@@ -2,12 +2,19 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../providers/UserProvider'
 import { getRoleName } from '../../utilities/roleUtils'
 import { DeleteUserModal } from '../../components/DeleteUserModal'
+import { CreateUserModal } from '../../components/CreateUserModal'
 
 export const UsersManagment = () => {
   const { getAllUsers } = useContext(UserContext)
+
   const [allUsers, setAllUsers] = useState([])
+  console.log('All users: ', allUsers)
+
   const [selectedUser, setSelectedUser] = useState(null)
+  console.log('Selected user: ', selectedUser)
+
   const [openModal, setOpenModal] = useState(false)
+  console.log('Modal state: ', openModal)
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -18,25 +25,29 @@ export const UsersManagment = () => {
         console.error('Failed to fetch users:', error)
       }
     }
-
     fetchUsers()
-  }, [])
+  }, [openModal, getAllUsers])
 
   const handleCheckboxChange = (user) => {
     setSelectedUser((prevSelectedUser) => {
-      const newSelectedUser = prevSelectedUser === user ? null : user
-      return newSelectedUser
+      if (prevSelectedUser && prevSelectedUser.id === user.id) {
+        return null
+      }
+      return user
     })
   }
 
   const closeModal = () => {
-    setOpenModal(false)
+    setSelectedUser(null)
+    setOpenModal(null)
   }
 
   return (
     <section className='user-managment-contet'>
       <div>
-        <button>Nuevo Usuario</button>
+        <button onClick={() => setOpenModal('createUser')}>
+          Nuevo Usuario
+        </button>
         {selectedUser !== null ? (
           <>
             <button>Restablecer Contraseña</button>
@@ -91,8 +102,13 @@ export const UsersManagment = () => {
           </tbody>
         </table>
       </div>
-      {openModal === 'deleteUser' && (
+      <CreateUserModal
+        isOpen={openModal === 'createUser'}
+        onClose={closeModal}
+      />
+      {selectedUser && (
         <DeleteUserModal
+          isOpen={openModal === 'deleteUser'}
           user={selectedUser}
           onClose={closeModal}
         />

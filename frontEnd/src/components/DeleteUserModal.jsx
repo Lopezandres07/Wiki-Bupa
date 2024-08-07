@@ -1,44 +1,35 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { UserContext } from '../providers/UserProvider'
-import Swal from 'sweetalert2'
-import PropTypes from 'prop-types'
+import { sweetAlerts } from '../utilities/sweetAlerts'
+import { UserModal } from './userModals'
 
-export const DeleteUserModal = ({ user, onClose }) => {
+export const DeleteUserModal = ({ user, isOpen, onClose }) => {
   const { deleteUser } = useContext(UserContext)
 
   const handleDelete = async (user) => {
     try {
       await deleteUser(user.id)
-      Swal.fire('Eliminado!', 'El usuario ha sido eliminado.', 'success')
+      sweetAlerts('success', `El usuario ha sido eliminado con éxito.`)
       onClose()
     } catch (error) {
-      Swal.fire('Error!', 'Hubo un problema al eliminar el usuario.', 'error')
+      sweetAlerts('error', `Error al eliminar el usuario: ${error} `)
     }
   }
 
-  useEffect(() => {
-    if (user) {
-      Swal.fire({
-        text: `¿Estás seguro que deseas eliminar a ${user.firstname} ${user.lastname}?`,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Eliminar',
-        confirmButtonColor: '#dc3545',
-        cancelButtonText: 'Cancelar',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          handleDelete(user)
-        } else {
-          onClose()
-        }
-      })
-    }
-  }, [user, onClose])
-
-  return null
-}
-
-DeleteUserModal.propTypes = {
-  user: PropTypes.object,
-  onClose: PropTypes.func.isRequired,
+  return (
+    <UserModal
+      title='Eliminar Usuario'
+      isOpen={isOpen}
+    >
+      <div className='create-user-form'>
+        <p>
+          {`¿Estás seguro que deseas eliminar a ${user.firstname} ${user.lastname}?`}
+        </p>
+        <div>
+          <button onClick={() => handleDelete(user)}>Eliminar</button>
+          <button onClick={onClose}>Cancelar</button>
+        </div>
+      </div>
+    </UserModal>
+  )
 }

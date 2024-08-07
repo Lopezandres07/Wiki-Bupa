@@ -22,7 +22,6 @@ export const newUser = async (req, res) => {
 
   try {
     const user = await createUser(data)
-
     res.status(201).json({ success: true, user })
   } catch (error) {
     res.status(500).json({ message: 'Error al crear el usuario', error })

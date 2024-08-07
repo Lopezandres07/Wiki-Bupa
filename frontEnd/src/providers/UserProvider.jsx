@@ -28,7 +28,7 @@ export const UserProvider = ({ children }) => {
     return users
   }
 
-  const register = async (data) => {
+  const registerUser = async (data) => {
     const newUser = await createUser(data)
     return newUser
   }
@@ -62,7 +62,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ getAllUsers, register, login, logout, user, deleteUser }}
+      value={{ getAllUsers, registerUser, login, logout, user, deleteUser }}
     >
       {children}
     </UserContext.Provider>
