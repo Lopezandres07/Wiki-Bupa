@@ -54,6 +54,12 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
               value: 2,
               message: 'Nombre debe tener al menos 2 caracteres',
             },
+            pattern: {
+              value: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/,
+              message: 'Nombre inválido, solo se permiten letras',
+            },
+            validate: (value) =>
+              value.trim() !== '' || 'Nombre no puede estar en blanco',
           })}
         />
         {errors.firstname && <span>{errors.firstname.message}</span>}
@@ -72,6 +78,12 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
               value: 2,
               message: 'Apellido debe tener al menos 2 caracteres',
             },
+            pattern: {
+              value: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/,
+              message: 'Apellido inválido, solo se permiten letras',
+            },
+            validate: (value) =>
+              value.trim() !== '' || 'Apellido no puede estar en blanco',
           })}
         />
         {errors.lastname && <span>{errors.lastname.message}</span>}
@@ -83,7 +95,12 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
           placeholder='Correo Electrónico'
           {...register('email', {
             required: { value: true, message: 'Correo es requerido' },
-            pattern: { value: /^\S+@\S+$/i, message: 'Correo inválido' },
+            pattern: {
+              value: /[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/,
+              message: 'Correo inválido',
+            },
+            validate: (value) =>
+              value.trim() !== '' || 'El correo no puede estar en blanco',
           })}
         />
         {errors.email && <span>{errors.email.message}</span>}
@@ -100,8 +117,14 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
             },
             minLength: {
               value: 6,
-              message: 'La contraseña debe tener al menos 8 caracteres',
+              message: 'La contraseña debe tener al menos 6 caracteres',
             },
+            pattern: {
+              value: /^\S*$/,
+              message: 'La contraseña no puede contener espacios en blanco',
+            },
+            validate: (value) =>
+              value.trim() !== '' || 'La contraseña no puede estar en blanco',
           })}
         />
         {errors.password && <span>{errors.password.message}</span>}
@@ -116,6 +139,12 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
               value: true,
               message: 'Ocupación es requerida',
             },
+            minLength: {
+              value: 2,
+              message: 'Ocupación debe tener al menos 2 caracteres',
+            },
+            validate: (value) =>
+              value.trim() !== '' || 'La ocupación no puede estar en blanco',
           })}
         />
         {errors.occupation && <span>{errors.occupation.message}</span>}
@@ -130,6 +159,13 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
               value: true,
               message: 'Lugar de Trabajo es requerido',
             },
+            minLength: {
+              value: 2,
+              message: 'Lugar de Trabajo debe tener al menos 2 caracteres',
+            },
+            validate: (value) =>
+              value.trim() !== '' ||
+              'El lugar de trabajo no puede estar en blanco',
           })}
         />
         {errors.workplace && <span>{errors.workplace.message}</span>}
@@ -137,18 +173,25 @@ export const CreateUserModal = ({ isOpen, onClose }) => {
         <label htmlFor='role_id'>Roles</label>
         <select
           id='role_id'
-          defaultValue={2}
+          defaultValue={''}
           {...register('role_id', {
             required: {
               value: true,
-              message: 'Rol es requerido',
             },
           })}
         >
-          <option value='1'>Administrador</option>
-          <option value='2'>Usuario</option>
-          <option value='3'>Moderador</option>
+          <option
+            value={''}
+            disabled
+          >
+            Selecciona un rol
+          </option>
+          <option value={1}>Administrador</option>
+          <option value={2}>Usuario</option>
+          <option value={3}>Moderador</option>
         </select>
+        {errors.role_id && <span>{errors.role_id.message}</span>}
+
         <div>
           <button>Crear Usuario</button>
           <button onClick={handleCancel}>Cancelar</button>

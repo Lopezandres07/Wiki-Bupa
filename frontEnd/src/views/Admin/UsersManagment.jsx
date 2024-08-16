@@ -3,6 +3,7 @@ import { UserContext } from '../../providers/UserProvider'
 import { getRoleName } from '../../utilities/roleUtils'
 import { DeleteUserModal } from '../../components/DeleteUserModal'
 import { CreateUserModal } from '../../components/CreateUserModal'
+import { UpdateUserModal } from '../../components/UpdateUserModal'
 
 export const UsersManagment = () => {
   const { getAllUsers } = useContext(UserContext)
@@ -50,15 +51,15 @@ export const UsersManagment = () => {
         </button>
         {selectedUser !== null ? (
           <>
-            <button>Restablecer Contraseña</button>
-            <button>Actualizar Usuario</button>
+            <button onClick={() => setOpenModal('updateUser')}>
+              Actualizar Usuario
+            </button>
             <button onClick={() => setOpenModal('deleteUser')}>
               Eliminar Usuario
             </button>
           </>
         ) : (
           <>
-            <button disabled>Restablecer Contraseña</button>
             <button disabled>Actualizar Usuario</button>
             <button disabled>Eliminar Usuario</button>
           </>
@@ -107,11 +108,18 @@ export const UsersManagment = () => {
         onClose={closeModal}
       />
       {selectedUser && (
-        <DeleteUserModal
-          isOpen={openModal === 'deleteUser'}
-          user={selectedUser}
-          onClose={closeModal}
-        />
+        <>
+          <DeleteUserModal
+            isOpen={openModal === 'deleteUser'}
+            user={selectedUser}
+            onClose={closeModal}
+          />
+          <UpdateUserModal
+            isOpen={openModal === 'updateUser'}
+            user={selectedUser}
+            onClose={closeModal}
+          />
+        </>
       )}
     </section>
   )

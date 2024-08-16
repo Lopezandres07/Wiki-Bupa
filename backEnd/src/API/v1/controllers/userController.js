@@ -5,6 +5,7 @@ import {
   findUserByEmail,
   getAllUsersModel,
   removeUser,
+  updateUser,
 } from '../models/userModels.js'
 
 export const getUsersController = async (req, res) => {
@@ -64,15 +65,9 @@ export const loginUser = async (req, res) => {
 
 export const updateUserProfile = async (req, res) => {
   const { id } = req.params
-  const { firstname, lastname, email, password } = req.body
-
+  const { newUserData } = req.body
   try {
-    const userUpdated = await updateUser(id, {
-      firstname,
-      lastname,
-      email,
-      password: bcrypt.hashSync(password, 10),
-    })
+    const userUpdated = await updateUser(id, newUserData)
 
     res.status(200).json({ success: true, userUpdated })
   } catch (error) {

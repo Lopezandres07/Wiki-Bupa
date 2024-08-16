@@ -490,12 +490,18 @@
   color: #f44336;
 }
 
-.create-user-form > input,
-.create-user-form > select {
+.create-user-form input {
   border-radius: 0.5rem;
   border: #bbbbbb solid 1px;
   padding: 0.3rem;
-  width: 15rem;
+  width: 13rem;
+}
+
+.create-user-form select {
+  border-radius: 0.5rem;
+  border: #bbbbbb solid 1px;
+  padding: 0.3rem;
+  width: 13.6rem;
 }
 
 .create-user-form div > button {

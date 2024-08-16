@@ -52,6 +52,37 @@ export const findUserByEmail = async (data) => {
   return response.rows[0]
 }
 
+export const updateUser = async (id, newUserData) => {
+  const { role_id, firstname, lastname, occupation, workplace } = newUserData
+  let SQLquery
+
+  console.log('New user data model: ', newUserData)
+
+  if (newUserData.password) {
+    const hashedPasword = bcrypt.hashSync(newUserData.password)
+    SQLquery = {
+      text: 'UPDATE users SET role_id = $1, firstname = $2, lastname = $3, password = $4, occupation = $5, workplace = $6 WHERE id = $7 RETURNING *',
+      values: [
+        role_id,
+        firstname,
+        lastname,
+        hashedPasword,
+        occupation,
+        workplace,
+        id,
+      ],
+    }
+  } else {
+    SQLquery = {
+      text: 'UPDATE users SET role_id = $1, firstname = $2, lastname = $3, occupation = $4, workplace = $5 WHERE id = $6 RETURNING *',
+      values: [role_id, firstname, lastname, occupation, workplace, id],
+    }
+  }
+
+  const response = await pool.query(SQLquery)
+  return response.rows[0]
+}
+
 export const removeUser = async (id) => {
   const SQLquery = {
     text: 'DELETE FROM users WHERE id = $1',

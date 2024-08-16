@@ -6,6 +6,7 @@ import {
   deletedUserById,
   getUsers,
   loginWithEmailAndPassword,
+  updateUserById,
 } from '../APIs/userAPIs'
 
 export const UserContext = createContext()
@@ -48,10 +49,13 @@ export const UserProvider = ({ children }) => {
   }
 
   const deleteUser = async (id) => {
-    console.log('UserProvider: ', id)
-
     const userDeleted = deletedUserById(id)
     return userDeleted
+  }
+
+  const updateUser = async (newUserData) => {
+    const userUpdated = await updateUserById(newUserData)
+    return userUpdated
   }
 
   const logout = () => {
@@ -62,7 +66,15 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ getAllUsers, registerUser, login, logout, user, deleteUser }}
+      value={{
+        getAllUsers,
+        registerUser,
+        login,
+        user,
+        updateUser,
+        logout,
+        deleteUser,
+      }}
     >
       {children}
     </UserContext.Provider>
