@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { UserContext } from '../providers/UserProvider'
 import { sweetAlerts } from '../utilities/sweetAlerts'
-import { UserModal } from './userModals'
+import { UserModal } from './UserModals'
 
 export const DeleteUserModal = ({ user, isOpen, onClose }) => {
   const { deleteUser } = useContext(UserContext)
