@@ -54,10 +54,11 @@ export const Nav = () => {
           </ul>
         </li>
         <li>
-          Aplicaciones
+          Utilitarios
           <ul className='tags-toggled'>
-            <li>Office</li>
-            <li>Utilitarias</li>
+            <li>Aplicativos</li>
+            <li>Dispositivos</li>
+            <li>Microsoft</li>
           </ul>
         </li>
       </ul>

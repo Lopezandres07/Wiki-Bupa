@@ -54,10 +54,10 @@ function App() {
           {/* Rutas Protegidas ⬇ */}
 
           <Route
-            path='/create-post/:id'
+            path='/create-post'
             element={
               token && userData ? (
-                <CreatePost />
+                <CreatePost userData={userData} />
               ) : (
                 <>
                   <Navigate to={'/login'} />
